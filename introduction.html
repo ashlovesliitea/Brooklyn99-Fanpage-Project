@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="introduction.css">
+  <script>
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+
+        videoId: 'sEOuJ4z5aTc',
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
+
+    var done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING && !done) {
+        done = true;
+      }
+    }
+  </script>
+</head>
+<body>
+
+    <div id="header">
+        <h1>BROOKLYN<br>NINE-NINE<br>INTRODUCTION</h1>
+     </div>
+     <div id="body"> 
+      <div class="intro">
+      <h1>ABOUT THE SHOW</h1>
+      <div class="introduction">
+        <div id="player"></div>
+        <div id="paragraph">Brooklyn Nine-Nine follows a team of detectives headed by the overly serious, newly appointed Captain Raymond Holt. The detectives include Jake Peralta, who has a high rate of successful arrests and solved cases, in spite of his relaxed, carefree and (at times) childish attitude. He eventually falls for his nerdy, by-the-book but loveable partner, Amy Santiago. The hard-working but timid Charles Boyle is partnered with the apathetic, aggressive and stern, Rosa Diaz.The detectives report to Sergeant (later Lieutenant) Terry Jeffords, a gentle giant and devoted family man.
+        <div id="button"><button type="button" onclick="location.href='https://en.wikipedia.org/wiki/Brooklyn_Nine-Nine'">Want More?</button></div>
+        </div>
+     </div>
+     <div class="Character">
+         <h1>CHARACTER</h1>
+     </div>
+    </div>
+</body>
